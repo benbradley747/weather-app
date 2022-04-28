@@ -1,0 +1,78 @@
+.App {
+  text-align: center;
+}
+
+.main {
+  max-width: 1200px;
+  margin: auto;
+  padding: 60px, 20px;
+  padding-top: 150px;
+}
+
+.search-container {
+  max-width: 1200px;
+  margin: auto;
+  display: block;
+}
+
+.form-control {
+  opacity: 0.5;
+}
+
+.form-control:focus {
+  opacity: 0.9;
+  transition: all .5s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.main-card-container {
+  background-color: rgb(161, 191, 219, 0.4);
+  min-height: 300px;
+  border-radius: 25px;
+}
+
+.forecast-container {
+  display: inline;
+  flex-wrap: wrap;
+}
+
+.card-container {
+  padding-left: 20px;
+  padding-right: 20px;
+  padding-top: 10px;
+}
+
+.weather-card {
+  min-height: 200px;
+  float: left;
+  width: 18%;
+  margin-left: 10px;
+  margin-right: 10px;
+  border-radius: 0px;
+  background-color: rgb(255, 255, 255, 0.5);
+}
+
+.place-container {
+  align-items: center;
+}
+
+.loc {
+  flex: 1; 
+  vertical-align: top;
+  text-align: left;
+}
+
+.place {
+  padding-top: 140px;
+  font-style: italic;
+}
+
+.name {
+  padding-left: 16px;
+  padding-top: 5px;
+}
+
+.search {
+  max-width: 400px;
+  margin-left: auto;
+  margin-right: auto;
+}
