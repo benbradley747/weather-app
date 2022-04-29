@@ -15,11 +15,11 @@ function WeatherSearch() {
     const fetchWeatherData = (e) => {
         if (e.key === 'Enter') {
             setLoading(true);
-            fetch(`${api.base}forecast?q=${city}&units=metric&APPID=${api.key}`)
+            fetch(`${api.base}forecast?q=${city}&units=imperial&APPID=${api.key}`)
                 .then(resp => resp.json())
                 .then(result => {
-                setData(result);
-                console.log(result);
+                setData(result)
+                console.log(result)
                 setCity('')
                 setLoading(false)
             });

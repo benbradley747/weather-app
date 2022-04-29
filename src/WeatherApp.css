@@ -38,17 +38,29 @@
 .card-container {
   padding-left: 20px;
   padding-right: 20px;
-  padding-top: 10px;
 }
 
 .weather-card {
+  display: inline;
+  flex-wrap: wrap;
   min-height: 200px;
   float: left;
   width: 18%;
   margin-left: 10px;
   margin-right: 10px;
-  border-radius: 0px;
+  border-radius: 10px;
   background-color: rgb(255, 255, 255, 0.5);
+  transition: all 1s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.weather-card:hover {
+  transform: scale(1.05);
+  background-color: rgb(255, 255, 255, 0.8);
+  cursor: pointer;
+}
+
+.grid {
+  position: relative;
 }
 
 .place-container {
@@ -61,13 +73,17 @@
   text-align: left;
 }
 
+.top-left {
+  float: left;
+}
+
 .place {
   padding-top: 140px;
   font-style: italic;
 }
 
 .name {
-  padding-left: 16px;
+  padding-left: 15px;
   padding-top: 5px;
 }
 
@@ -75,4 +91,34 @@
   max-width: 400px;
   margin-left: auto;
   margin-right: auto;
+}
+
+.temp {
+  padding-left: 10px;
+  font-size: 60px;
+}
+
+.alt-temp {
+  padding-left: 10px;
+}
+
+.bottom {
+  align-items: left;
+  float: left;
+}
+
+.name {
+  padding-left: 15px;
+  padding-top: 5px;
+}
+
+.modal {
+  min-width: 100px;
+  min-height: 100px;
+  position: absolute;
+  z-index: 99;
+}
+
+.day {
+  padding-top: 5px;
 }

@@ -2,23 +2,22 @@ import { useEffect, useState } from "react";
 import CardComponent from "./CardComponent";
 import FadeIn from 'react-fade-in/lib/FadeIn';
 
-const CardContainerComponent = ({ weatherData, loading }) => {
+const CardContainerComponent = ({weatherData, loading}) => {
     const [forecast, setForecast] = useState([]);
-    const [name, setName] = useState('');
-    const [gotData, setGotData] = useState(false);
+    const [city, setCity] = useState('');
+    const [country, setCountry] = useState('');
+    const [modalActive, setModalActive] = useState(false);
 
     useEffect(() => {
-        if (!gotData) {
+        if (Object.keys(weatherData).length !== 0) {
             parseWeatherData();
         }
-    });
+    }, [weatherData]);
 
     const parseWeatherData = () => {
-        if (Object.keys(weatherData).length !== 0) {
-            setForecast(weatherData.list.slice(0, 5));
-            setName(weatherData.city.name);
-            setGotData(true);
-        }
+        setForecast(weatherData.list.slice(0, 5));
+        setCity(weatherData.city.name);
+        setCountry(weatherData.city.country);
     };
 
     return (
@@ -30,19 +29,19 @@ const CardContainerComponent = ({ weatherData, loading }) => {
                         <FadeIn>
                             <div className="forecast-container">
                                 <div className="loc m-2 pl-2">
-                                    <h1 className="name">{name}</h1>
+                                    <h1 className="name">{city}, {country}</h1>
                                 </div>
                                 <div className="card-container">
                                     <FadeIn delay={50}>
-                                        {forecast.map(function (data) {
-                                            return <CardComponent data={data} />
+                                        {forecast.map((data, i) => {
+                                            return <CardComponent data={data} key={i} datakey={i} modalActive={modalActive} setModalActive={setModalActive} />
                                         })}
                                     </FadeIn>
                                 </div>
                             </div>
                         </FadeIn> :
                         <div className="place-container">
-                            <h5 className="place">Enter your city to get weather data</h5>
+                            <h5 className="place">Enter your city to get weather forecast</h5>
                         </div>
             }
         </div>
