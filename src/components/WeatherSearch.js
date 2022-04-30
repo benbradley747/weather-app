@@ -11,6 +11,7 @@ function WeatherSearch() {
     const [city, setCity] = useState('');
     const [loading, setLoading] = useState(false);
     const [data, setData] = useState({});
+    const [error, setError] = useState(false);
 
     const fetchWeatherData = (e) => {
         if (e.key === 'Enter') {
@@ -20,8 +21,8 @@ function WeatherSearch() {
                 .then(result => {
                 setData(result)
                 console.log(result)
-                setCity('')
                 setLoading(false)
+                setError(result.cod === "404")
             });
         }
     }
@@ -40,7 +41,7 @@ function WeatherSearch() {
                     />
                 </InputGroup>
             </div>
-            <CardContainerComponent weatherData={data} loading={loading} />
+            <CardContainerComponent weatherData={data} loading={loading} error={error} />
         </div>
     );
 }
